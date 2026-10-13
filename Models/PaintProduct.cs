@@ -1,5 +1,4 @@
 using System;
-using Microsoft.VisualBasic;
 using PMS.Enums;
 using PMS.Interfaces;
 
@@ -11,13 +10,15 @@ public class PaintProduct : IBuyable
     public const decimal DefaultDiscount = 0.05m;
 
     public string Name { get; set; }
+    public Brand Brand { get; set; }
     public PaintType Type { get; set; }
     public PaintSpecification Specification { get; set; }
     public decimal Price { get; set; }
 
-    public PaintProduct(string name, PaintType type, PaintSpecification specification, decimal price)
+    public PaintProduct(string name, Brand brand, PaintType type, PaintSpecification specification, decimal price)
     {
         Name = name;
+        Brand = brand;
         Type = type;
         Specification = specification;
         Price = price;
@@ -31,13 +32,13 @@ public class PaintProduct : IBuyable
 
     public void DisplayInfo()
     {
-        string info = $"Name: {Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
+        string info = $"Name: {Name}, Brand: {Brand.Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
         Console.WriteLine(info);
     }
 
     public string GetInfo()
     {
-        string info = $"Name: {Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
+        string info = $"Name: {Name}, Brand: {Brand.Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
         return info;
     }
 

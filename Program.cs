@@ -5,12 +5,16 @@ class Program
 {
     static void Main(string[] args)
     {
+        Brand dulux = new Brand("Dulux");
+        Brand wattyl = new Brand("Wattyl");
+        Brand haymes = new Brand("Haymes Paint");
+
         // Create multiple paint products
-        PaintProduct product1 = new PaintProduct("Premium Paint", PaintType.SemiGloss, new PaintSpecification("Red", 5), 20.0m);
-        PaintProduct product2 = new PaintProduct("Standard Paint", PaintType.Matte, new PaintSpecification("Blue", 3), 15.0m);
-        PaintProduct product3 = new PaintProduct("Economy Paint", PaintType.Glossy, new PaintSpecification("Green", 2), 10.0m);
-        PaintProduct product4 = new PaintProduct("Luxury Paint", PaintType.Gloss, new PaintSpecification("Yellow", 4), 25.0m);
-        PaintProduct product5 = new PaintProduct("Basic Paint", PaintType.BaseCoat, new PaintSpecification("White", 1), 5.0m);
+        PaintProduct product1 = new PaintProduct("Premium Paint", dulux, PaintType.SemiGloss, new PaintSpecification("Red", 5), 20.0m);
+        PaintProduct product2 = new PaintProduct("Standard Paint", wattyl, PaintType.Matte, new PaintSpecification("Blue", 3), 15.0m);
+        PaintProduct product3 = new PaintProduct("Economy Paint", haymes, PaintType.Glossy, new PaintSpecification("Green", 2), 10.0m);
+        PaintProduct product4 = new PaintProduct("Luxury Paint", dulux, PaintType.Gloss, new PaintSpecification("Yellow", 4), 25.0m);
+        PaintProduct product5 = new PaintProduct("Basic Paint", haymes, PaintType.BaseCoat, new PaintSpecification("White", 1), 5.0m);
         
         // Display information for each product
         Console.WriteLine("Paint Products Information:");
