@@ -19,4 +19,10 @@ public class PaintSpecification
         Console.WriteLine(spec);
     }
 
+    public string GetSpecification()
+    {
+        string spec = $"Colour: {Colour}, Size in Liters: {SizeInLiters}";
+        return spec;
+    }
+
 }

@@ -5,25 +5,35 @@ namespace PMS.Models;
 public class Order
 {
     public readonly DateTime CreatedAt;
-    public PaintProduct Product { get; set; }
-    public int Quantity { get; set; }
+    public OrderItem[] OrderItems { get; set; }
     public decimal TotalPrice { get; set; }
 
-    public Order(PaintProduct paintProduct, int quantity)
+    public Order(OrderItem[] orderItems)
     {
         CreatedAt = DateTime.Now;
-        Product = paintProduct;
-        Quantity = quantity;
-        TotalPrice = paintProduct.GetFinalPrice() * quantity;
+        OrderItems = orderItems;
+        TotalPrice = this.GetTotalPrice();
     }
 
-    public string DisplayOrder()
-    {
-        return $"Product: {Product.DisplayInfo}, Quantity: {Quantity}, Total Price: {TotalPrice}";
+    public void DisplayOrder()
+    {   
+        string orderInfo = "";
+        foreach (OrderItem item in OrderItems)
+        {
+            orderInfo += $"Product: {item.PaintProduct.GetInfo()}, Quantity: {item.Quantity}\n";
+        }
+
+        orderInfo += $"Order Created At: {CreatedAt}, Total Price: {TotalPrice}";
+        Console.WriteLine(orderInfo);
     }
 
     public decimal GetTotalPrice()
-    {
-        return Math.Round(TotalPrice, 2);
+    {   
+        decimal total = 0;
+        foreach (OrderItem item in OrderItems)
+        {
+            total += item.PaintProduct.GetFinalPrice() * item.Quantity;
+        }
+        return total;
     }
 }

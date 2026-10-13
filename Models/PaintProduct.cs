@@ -31,8 +31,14 @@ public class PaintProduct : IBuyable
 
     public void DisplayInfo()
     {
-        string info = $"Name: {Name}, Type: {Type}, Paint Specification: {Specification.DisplaySpecification}, Price: {Price}";
+        string info = $"Name: {Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
         Console.WriteLine(info);
+    }
+
+    public string GetInfo()
+    {
+        string info = $"Name: {Name}, Type: {Type}, Paint Specification: {Specification.GetSpecification()}, Price: {Price}";
+        return info;
     }
 
     public decimal GetMaxDiscount(int rate, bool isOverridable)
