@@ -4,8 +4,8 @@ namespace PMS.Models;
 
 public class PaintSpecification
 {
-    string Colour { get; set; }
-    int SizeInLiters { get; set; }
+    public string Colour { get; set; }
+    public int SizeInLiters { get; set; }
 
     public PaintSpecification(string colour, int sizeInLiters)
     {
