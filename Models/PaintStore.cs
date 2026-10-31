@@ -4,8 +4,8 @@ namespace PMS.Models;
 
 public class PaintStore
 {
-    public StoreItem[] StoreItems { get; set; }
-    public PaintStore(StoreItem[] storeItems)
+    public List<StoreItem>StoreItems { get; set; }
+    public PaintStore(List<StoreItem> storeItems)
     {
         StoreItems = storeItems;
     }
