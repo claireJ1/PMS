@@ -9,14 +9,16 @@ public class PaintProduct : IBuyable
     public readonly decimal TaxRate = 0.1m;
     public const decimal DefaultDiscount = 0.05m;
 
+    public int Id { get; set; }
     public string Name { get; set; }
     public Brand Brand { get; set; }
     public PaintType Type { get; set; }
     public PaintSpecification Specification { get; set; }
     public decimal Price { get; set; }
 
-    public PaintProduct(string name, Brand brand, PaintType type, PaintSpecification specification, decimal price)
+    public PaintProduct(int id, string name, Brand brand, PaintType type, PaintSpecification specification, decimal price)
     {
+        Id = id;
         Name = name;
         Brand = brand;
         Type = type;
